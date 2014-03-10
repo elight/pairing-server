@@ -27,16 +27,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
      sudo apt-get upgrade -y
      sudo add-apt-repository ppa:cassou/emacs
      sudo apt-get update
-     sudo apt-get install emacs24
-     sudo apt-get -y install build-essential ruby1.9.1 ruby1.9.1-dev libopenssl-ruby1.9.1 git libpq-dev curl
+     sudo apt-get -y install build-essential ruby1.9.1 ruby1.9.1-dev libopenssl-ruby1.9.1 git libpq-dev curl emacs24
      sudo gem install bundler
      cd ~
-     git clone git@github.com:elight/.emacs.d.git
-     cd .emacs.d
-     curl -fsSkL https://raw.github.com/cask/cask/master/go > cask_install.py
-     python cask_install.py
-     rm cask_install.py
+     git clone https://github.com/elight/.emacs.d.git
      cd ~/.emacs.d
+     curl -fsSkL https://raw.github.com/cask/cask/master/go | python
+     export PATH="/root/.cask/bin:$PATH"
      cask
   SHELL
 end
