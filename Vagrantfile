@@ -23,11 +23,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
   config.vm.provision "shell", inline: <<-SHELL
-     sudo apt-get update
-     sudo apt-get upgrade -y
      sudo add-apt-repository ppa:cassou/emacs
      sudo apt-get update
-     sudo apt-get -y install build-essential ruby1.9.1 ruby1.9.1-dev libopenssl-ruby1.9.1 git libpq-dev curl emacs24
+     sudo apt-get upgrade -y
+     sudo apt-get -y install build-essential ruby1.9.1 ruby1.9.1-dev libopenssl-ruby1.9.1 git libpq-dev curl emacs24 tmux
      sudo gem install bundler
      cd ~
      git clone https://github.com/elight/.emacs.d.git
